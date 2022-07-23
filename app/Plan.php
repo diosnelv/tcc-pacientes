@@ -19,4 +19,8 @@ class Plan extends Model
     public function Profesional(){
         return $this->belongsTo('App\Profesional','profesional_id','id');
     }
+
+    public function PlanComidas(){
+        return $this->hasMany('App\PlanComida','plan_id','id');
+    }
 }

@@ -9,7 +9,7 @@
         </ol>
     </nav>
 
-    <plan-nutricional></plan-nutricional>
+    <plan-nutricional :comidas="{{json_encode(($dieta))}}"></plan-nutricional>
 </div>
 @endsection
 

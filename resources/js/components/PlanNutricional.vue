@@ -1,5 +1,5 @@
 <template>
-    <vue-cal :events="events" :disable-views="['years', 'year', 'month']" style="height: 100%" locale="es" :time="false" />
+    <vue-cal :timeCellHeight="150" :time="false" :timeStep="60" :events="comidas" :hide-weekdays="[7]" :time-from="6 * 60" :time-to="21 * 60" :disable-views="['years', 'year', 'month']" style="height: 100%" locale="es" />
 </template>
 
 <script>
@@ -8,205 +8,212 @@ import 'vue-cal/dist/vuecal.css'
 import 'vue-cal/dist/i18n/es.js'
     export default {
         components: { VueCal },
+        mounted() {
+            console.log('dieta: '+JSON.stringify(this.comidas));
+        },
+        props: {
+            comidas: Array
+        },
         data: () => ({
             events: [
                 {
-                    start: '2021-03-22 07:00:00',
-                    end: '2021-03-22 08:00:00',
+                    start: '2022-07-15 07:00:00',
+                    end: '2022-07-15 08:00:00',
                     title: 'Desayuno',
                     content: '<i class="fas fa-coffee"></i><br><br><h6>Mixto con JyQ</h6>',
                     class: 'desayuno'
                 },
                 {
-                    start: '2021-03-22 12:00:00',
-                    end: '2021-03-22 13:00:00',
+                    start: '2022-07-15 12:00:00',
+                    end: '2022-07-15 13:00:00',
                     title: 'Almuerzo',
                     content: '<i class="fas fa-hamburger"></i><br><br><h6>Canelones de choclo</h6>',
                     class: 'almuerzo'
                 },
                 {
-                    start: '2021-03-22 16:30:00',
-                    end: '2021-03-22 17:30:00',
+                    start: '2022-07-15 16:30:00',
+                    end: '2022-07-15 17:30:00',
                     title: 'Merienda',
                     content: '<i class="fas fa-apple-alt"></i><br><br><h6>1 fruta mediana</h6>',
                     class: 'merienda'
                 },
                 {
-                    start: '2021-03-22 20:00:00',
-                    end: '2021-03-22 21:00:00',
+                    start: '2022-07-15 20:00:00',
+                    end: '2022-07-15 21:00:00',
                     title: 'Cena',
                     content: '<i class="fas fa-pizza-slice"></i><br><br><h6>Ensalada Cesar</h6>',
                     class: 'cena'
                 },
                 {
-                    start: '2021-03-23 07:00:00',
-                    end: '2021-03-23 08:00:00',
+                    start: '2022-07-14 07:00:00',
+                    end: '2022-07-14 08:00:00',
                     title: 'Desayuno',
                     content: '<i class="fas fa-coffee"></i><br><br><h6>Jugo Natural y Mixto con JyQ</h6>',
                     class: 'desayuno'
                 },
                 {
-                    start: '2021-03-23 12:00:00',
-                    end: '2021-03-23 13:00:00',
+                    start: '2022-07-14 12:00:00',
+                    end: '2022-07-14 13:00:00',
                     title: 'Almuerzo',
                     content: '<i class="fas fa-hamburger"></i><br><br><h6>verduras salteadas</h6>',
                     class: 'almuerzo'
                 },
                 {
-                    start: '2021-03-23 16:30:00',
-                    end: '2021-03-23 17:30:00',
+                    start: '2022-07-14 16:30:00',
+                    end: '2022-07-14 17:30:00',
                     title: 'Merienda',
                     content: '<i class="fas fa-apple-alt"></i><br><br><h6>1 yogurt chico</h6>',
                     class: 'merienda'
                 },
                 {
-                    start: '2021-03-23 20:00:00',
-                    end: '2021-03-23 21:00:00',
+                    start: '2022-07-14 20:00:00',
+                    end: '2022-07-14 21:00:00',
                     title: 'Cena',
                     content: '<i class="fas fa-pizza-slice"></i><br><br><h6>Omelette con queso</h6>',
                     class: 'cena'
                 },
                 {
-                    start: '2021-03-24 07:00:00',
-                    end: '2021-03-24 08:00:00',
+                    start: '2022-07-13 07:00:00',
+                    end: '2022-07-13 08:00:00',
                     title: 'Desayuno',
                     content: '<i class="fas fa-coffee"></i><br><br><h6>Cafe con leche y 4 galletitas</h6>',
                     class: 'desayuno'
                 },
                 {
-                    start: '2021-03-24 12:00:00',
-                    end: '2021-03-24 13:00:00',
+                    start: '2022-07-13 12:00:00',
+                    end: '2022-07-13 13:00:00',
                     title: 'Almuerzo',
                     content: '<i class="fas fa-hamburger"></i><br><br><h6>Caldo de Verduras </h6>',
                     class: 'almuerzo'
                 },
                 {
-                    start: '2021-03-24 16:30:00',
-                    end: '2021-03-24 17:30:00',
+                    start: '2022-07-13 16:30:00',
+                    end: '2022-07-13 17:30:00',
                     title: 'Merienda',
                     content: '<i class="fas fa-apple-alt"></i><br><br><h6>1 fruta mediana</h6>',
                     class: 'merienda'
                 },
                 {
-                    start: '2021-03-24 20:00:00',
-                    end: '2021-03-24 21:00:00',
+                    start: '2022-07-13 20:00:00',
+                    end: '2022-07-13 21:00:00',
                     title: 'Cena',
                     content: '<i class="fas fa-pizza-slice"></i><br><br><h6>Bife con Ensalada</h6>',
                     class: 'cena'
                 },
                 {
-                    start: '2021-03-25 07:00:00',
-                    end: '2021-03-25 08:00:00',
+                    start: '2022-07-12 07:00:00',
+                    end: '2022-07-12 08:00:00',
                     title: 'Desayuno',
                     content: '<i class="fas fa-coffee"></i><br><br><h6>Te con leche y mixto de JyQ</h6>',
                     class: 'desayuno'
                 },
                 {
-                    start: '2021-03-25 12:00:00',
-                    end: '2021-03-25 13:00:00',
+                    start: '2022-07-12 12:00:00',
+                    end: '2022-07-12 13:00:00',
                     title: 'Almuerzo',
                     content: '<i class="fas fa-hamburger"></i><br><br><h6>Chop Suey</h6>',
                     class: 'almuerzo'
                 },
                 {
-                    start: '2021-03-25 16:30:00',
-                    end: '2021-03-25 17:30:00',
+                    start: '2022-07-12 16:30:00',
+                    end: '2022-07-12 17:30:00',
                     title: 'Merienda',
                     content: '<i class="fas fa-apple-alt"></i><br><br><h6>1 banana</h6>',
                     class: 'merienda'
                 },
                 {
-                    start: '2021-03-25 20:00:00',
-                    end: '2021-03-25 21:00:00',
+                    start: '2022-07-12 20:00:00',
+                    end: '2022-07-12 21:00:00',
                     title: 'Cena',
                     content: '<i class="fas fa-pizza-slice"></i><br><br><h6>2 porciones de pizza</h6>',
                     class: 'cena'
                 },
                 {
-                    start: '2021-03-26 07:00:00',
-                    end: '2021-03-26 08:00:00',
+                    start: '2022-07-11 07:00:00',
+                    end: '2022-07-11 08:00:00',
                     title: 'Desayuno',
                     content: '<i class="fas fa-coffee"></i><br><br><h6>Cafe con Leche y  mixto </h6>',
                     class: 'desayuno'
                 },
                 {
-                    start: '2021-03-26 12:00:00',
-                    end: '2021-03-26 13:00:00',
+                    start: '2022-07-11 12:00:00',
+                    end: '2022-07-11 13:00:00',
                     title: 'Almuerzo',
                     content: '<i class="fas fa-hamburger"></i><br><br><h6>Pollo al horno y verduras</h6>',
                     class: 'almuerzo'
                 },
                 {
-                    start: '2021-03-26 16:30:00',
-                    end: '2021-03-26 17:30:00',
+                    start: '2022-07-11 16:30:00',
+                    end: '2022-07-11 17:30:00',
                     title: 'Merienda',
                     content: '<i class="fas fa-apple-alt"></i><br><br><h6>1 yogurt chico</h6>',
                     class: 'merienda'
                 },
                 {
-                    start: '2021-03-26 20:00:00',
-                    end: '2021-03-26 21:00:00',
+                    start: '2022-07-11 20:00:00',
+                    end: '2022-07-11 21:00:00',
                     title: 'Cena',
                     content: '<i class="fas fa-pizza-slice"></i><br><br><h6>Pizza con rapiditas</h6>',
                     class: 'cena'
                 },
                 {
-                    start: '2021-03-27 07:00:00',
-                    end: '2021-03-27 08:00:00',
+                    start: '2022-07-16 07:00:00',
+                    end: '2022-07-16 08:00:00',
                     title: 'Desayuno',
                     content: '<i class="fas fa-coffee"></i><br><br><h6>Cafe con leche y Mixto</h6>',
                     class: 'desayuno'
                 },
                 {
-                    start: '2021-03-27 12:00:00',
-                    end: '2021-03-27 13:00:00',
+                    start: '2022-07-16 12:00:00',
+                    end: '2022-07-16 13:00:00',
                     title: 'Almuerzo',
                     content: '<i class="fas fa-hamburger"></i><br><br><h6>Guiso con arroz integral</h6>',
                     class: 'almuerzo'
                 },
                 {
-                    start: '2021-03-27 16:30:00',
-                    end: '2021-03-27 17:30:00',
+                    start: '2022-07-16 16:30:00',
+                    end: '2022-07-16 17:30:00',
                     title: 'Merienda',
                     content: '<i class="fas fa-apple-alt"></i><br><br><h6>1 fruta mediana</h6>',
                     class: 'merienda'
                 },
                 {
-                    start: '2021-03-27 20:00:00',
-                    end: '2021-03-27 21:00:00',
+                    start: '2022-07-16 20:00:00',
+                    end: '2022-07-16 21:00:00',
                     title: 'Cena',
                     content: '<i class="fas fa-pizza-slice"></i><br><br><h6>Ensalada de atun</h6>',
                     class: 'cena'
                 },
                 {
-                    start: '2021-03-28 07:00:00',
-                    end: '2021-03-28 08:00:00',
+                    start: '2022-07-28 07:00:00',
+                    end: '2022-07-28 08:00:00',
                     title: 'Desayuno',
                     content: '<i class="fas fa-coffee"></i><br><br><h6>Cafe con leche y Mixto con JyQ</h6>',
                     class: 'desayuno'
                 },
                 {
-                    start: '2021-03-28 12:00:00',
-                    end: '2021-03-28 13:00:00',
+                    start: '2022-07-28 12:00:00',
+                    end: '2022-07-28 13:00:00',
                     title: 'Almuerzo',
                     content: '<i class="fas fa-hamburger"></i><br><br><h6>Bife con ensalda verde</h6>',
                     class: 'almuerzo'
                 },
                 {
-                    start: '2021-03-28 16:30:00',
-                    end: '2021-03-28 17:30:00',
+                    start: '2022-07-28 16:30:00',
+                    end: '2022-07-28 17:30:00',
                     title: 'Merienda',
                     content: '<i class="fas fa-apple-alt"></i><br><br><h6>1 fruta mediana</h6>',
                     class: 'merienda'
                 },
                 {
-                    start: '2021-03-28 20:00:00',
-                    end: '2021-03-28 21:00:00',
+                    start: '2022-07-28 20:00:00',
+                    end: '2022-07-28 21:00:00',
                     title: 'Cena',
                     content: '<i class="fas fa-pizza-slice"></i><br><br><h6>sandwich de verduras</h6>',
                     class: 'cena'
                 }
-            ]
+            ],
+            // datos: ''
         })
     }
 </script>
