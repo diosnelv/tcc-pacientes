@@ -21,5 +21,13 @@ class PacientesSeeder extends Seeder
                 'created_at'    => date("Y-m-d H:i:s")
             ));
         }
+
+        DB::table('users_pacientes')->insert(array(
+            'username'       => 'nmbsosa',
+            'paciente_id' => 10,
+            'email'      => 'nmbsosa@gmail.com',
+            'password'   => Hash::make('12345'),
+            'created_at' => date("Y-m-d H:i:s")
+        ));
     }
 }
