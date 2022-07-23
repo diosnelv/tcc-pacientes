@@ -16,7 +16,6 @@ class CreateUsersPacientesTable extends Migration
         Schema::create('users_pacientes', function (Blueprint $table) {
             $table->id();
             $table->unsignedInteger('paciente_id')->unique();
-            $table->foreign('paciente_id')->references('id')->on('pacientes');
             $table->string('username');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
