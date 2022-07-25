@@ -21,10 +21,10 @@
         <tbody>
             @foreach($medidas as $medida)
                 <tr>
-                    <td class="text-center">{{date('d-m-Y', strtotime($medida['fecha']))}}</td>
-                    <td class="text-center">{{$medida['peso']}}</td>
-                    <td class="text-center">{{$medida['altura']}}</td>
-                    <td class="text-center">{{$medida['imc']}}</td>
+                    <td class="text-center">{!! \Carbon\Carbon::parse($medida['created_at'])->isoFormat('dddd, DD \d\e MMMM \d\e YYYY'); !!}</td>
+                    <td class="text-center">{{$medida['peso']}} kg.</td>
+                    <td class="text-center">{{$medida['altura']}} cm.</td>
+                    <td class="text-center">{{$medida['indice']}}</td>
                 </tr>
             @endforeach
         </tbody>

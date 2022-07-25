@@ -24,5 +24,7 @@ Route::get('/profile', 'ShowProfile');
 Route::get('/medidas', 'ShowMedidas');
 Route::get('/historial-medidas', 'HistorialMedidas');
 Route::get('/plan-nutricional', 'PlanNutricional');
-Route::get('/habitos', 'ShowHabitos');
+Route::get('/habitos', 'ShowHabitos')->name('habitos');
+Route::get('/habitos-crear', 'ShowHabitos@crearHabito')->name('crear-habito');
+Route::post('/habitos', 'ShowHabitos@guardarHabito')->name('guardar-habito');
 Route::get('/comidas', 'ShowComidas');

@@ -22,6 +22,10 @@ class Paciente extends Model
         return $this->hasMany('App\Antropometrico','paciente_id','id');
     }
 
+    public function Actividades(){
+        return $this->hasMany('App\ActividadPaciente','paciente_id','id');
+    }
+
     public function Plan(){
         return $this->hasMany('App\Plan','paciente_id','id');
     }

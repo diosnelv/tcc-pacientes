@@ -8,40 +8,32 @@
             <li class="breadcrumb-item active" aria-current="page">Hábitos</li>
         </ol>
     </nav>
-    <form class="ml-5">
+    <form class="ml-5" method="POST" action="{{ route('guardar-habito') }}">
+        @csrf
         <fieldset>
             <legend>Actividades realizadas</legend>
             <div class="form-group">
                 <label for="formGroupExampleInput" class="text-primary">Fecha</label>
-                <input class="form-control w-25" id="formGroupExampleInput" type="date" name="trip-start" value="2021-03-16">
+                <input class="form-control w-50" style="max-width: 200px;" id="formGroupExampleInput" type="date" name="created_at" value="2022-08-01">
             </div>
 
             <label for="formGroupExampleInput2 mt-4" class="text-primary">Actividad</label>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                <label class="form-check-label" for="exampleRadios1">
-                    Caminata / Trote
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                <label class="form-check-label" for="exampleRadios2">
-                    Deporte
-                </label>
-            </div>
-            <div class="form-check">
-                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
-                <label class="form-check-label" for="exampleRadios3">
-                    Gimnasio
-                </label>
-            </div>
+            @foreach($actividades as $actividad)
+                <div class="form-check">
+{{--                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>--}}
+                    {!! Form::radio('actividad_id', $actividad['id']) !!}
+                    <label class="form-check-label" for="exampleRadios1">
+                        {!! $actividad['nombre'] !!}
+                    </label>
+                </div>
+            @endforeach
 
             <div class="form-group mt-4">
                 <label for="formGroupExampleInput4" class="text-primary">Duración (minutos)</label>
-                <input class="form-control w-25" id="formGroupExampleInput4" type="number">
+                {!! Form::number('tiempo', '') !!}
             </div>
 
-            <button onclick="test()" type="submit" class="btn btn-success mt-3">Guardar &nbsp;<i class="fas fa-save"></i></button>
+            <button type="submit" class="btn btn-success mt-3">Guardar &nbsp;<i class="fas fa-save"></i></button>
         </fieldset>
     </form>
 </div>

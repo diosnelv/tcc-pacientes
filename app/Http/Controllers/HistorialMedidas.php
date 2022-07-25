@@ -15,16 +15,19 @@ class HistorialMedidas extends Controller
      */
     public function __invoke(Request $request)
     {
-        $persona = Auth::user()->paciente->antropometrico[0];
-        $medidas = array(
-            array('peso' => '78', 'altura' => '180', 'fecha' => '2021-01-07','imc' => '28'),
-            array('peso' => '74', 'altura' => '180', 'fecha' => '2021-01-21','imc' => '25'),
-            array('peso' => '71', 'altura' => '180', 'fecha' => '2021-02-06','imc' => '23'),
-            array('peso' => '69', 'altura' => '180', 'fecha' => '2021-02-20','imc' => '21'),
-            array('peso' => '70', 'altura' => '180', 'fecha' => '2021-03-08','imc' => '22')
-        );
+        $medidas = Auth::user()->paciente->antropometrico->toArray();
+
+//        dd($medidas);
+
+//        $medidas = array(
+//            array('peso' => '78', 'altura' => '180', 'fecha' => '2021-01-07','imc' => '28'),
+//            array('peso' => '74', 'altura' => '180', 'fecha' => '2021-01-21','imc' => '25'),
+//            array('peso' => '71', 'altura' => '180', 'fecha' => '2021-02-06','imc' => '23'),
+//            array('peso' => '69', 'altura' => '180', 'fecha' => '2021-02-20','imc' => '21'),
+//            array('peso' => '70', 'altura' => '180', 'fecha' => '2021-03-08','imc' => '22')
+//        );
 
 
-        return view('historial-medidas', compact('persona', 'medidas'));
+        return view('historial-medidas', compact('medidas'));
     }
 }
