@@ -33,7 +33,7 @@
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
+{{--                                        <strong>{{ $message }}</strong>--}}
                                     </span>
                                 @enderror
                             </div>
@@ -57,11 +57,11 @@
                                     Ingresar
                                 </button>
 
-{{--                                @if (Route::has('password.request'))--}}
-{{--                                    <a class="btn btn-link" href="{{ route('password.request') }}">--}}
-{{--                                        {{ __('Forgot Your Password?') }}--}}
-{{--                                    </a>--}}
-{{--                                @endif--}}
+                                @if (Route::has('password.request'))
+                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                        {{ __('¿Olvidaste tu contraseña?') }}
+                                    </a>
+                                @endif
                             </div>
                         </div>
                     </form>
