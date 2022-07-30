@@ -33,16 +33,16 @@ class PlanNutricional extends Controller
 
             switch ($tipo){
                 case 1:
-                    $new['content'] = '<i class="fas fa-coffee"></i><br><br><h6>'.$comida->Comida->nombre.'</h6>';
+                    $new['content'] = '<i class="fas fa-coffee"></i><br><br><h6>'.$comida->Comida->descripcion.'</h6>';
                     break;
                 case 2:
-                    $new['content'] = '<i class="fas fa-hamburger"></i><br><br><h6>'.$comida->Comida->nombre.'</h6>';
+                    $new['content'] = '<i class="fas fa-hamburger"></i><br><br><h6>'.$comida->Comida->descripcion.'</h6>';
                     break;
                 case 3:
-                    $new['content'] = '<i class="fas fa-apple-alt"></i><br><br><h6>'.$comida->Comida->nombre.'</h6>';
+                    $new['content'] = '<i class="fas fa-apple-alt"></i><br><br><h6>'.$comida->Comida->descripcion.'</h6>';
                     break;
                 case 4:
-                    $new['content'] = '<i class="fas fa-pizza-slice"></i><br><br><h6>'.$comida->Comida->nombre.'</h6>';
+                    $new['content'] = '<i class="fas fa-pizza-slice"></i><br><br><h6>'.$comida->Comida->descripcion.'</h6>';
                     break;
             }
             $dia = Carbon::parse($fechaInicio)->addDays($comida->dia_id)->toDateString();
