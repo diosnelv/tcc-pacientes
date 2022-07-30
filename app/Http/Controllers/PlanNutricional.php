@@ -49,7 +49,7 @@ class PlanNutricional extends Controller
 
             $new['start'] = $dia.' '.$comida->horario;
             $new['end'] = Carbon::parse($new['start'])->addHour()->toDateTimeString();
-            $new['title'] = $comida->ComidaTipo->nombre;
+            $new['title'] = $comida->ComidaTipo->descripcion;
             $new['class'] = $comida->ComidaTipo->codigo;
 
 
