@@ -14,10 +14,10 @@
         <fieldset>
             <legend>Selecciona la fecha para su consulta</legend>
 
-            <div class="form-group">
-                <label>Profesional</label>
-                {!! Form::select('profesional_id', ['' => ''] + $profesionales, null, ['class' => 'form-control w-50', 'style' => 'max-width: 200px;' ]) !!}
-            </div>
+{{--            <div class="form-group">--}}
+{{--                <label>Profesional</label>--}}
+{{--                {!! Form::select('profesional_id', ['' => ''] + $profesionales, null, ['class' => 'form-control w-50', 'style' => 'max-width: 200px;' ]) !!}--}}
+{{--            </div>--}}
 
             <div class="form-group">
                 <label for="formGroupExampleInput" class="text-primary">Fecha</label>

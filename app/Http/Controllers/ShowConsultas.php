@@ -41,6 +41,8 @@ class ShowConsultas extends Controller
         $inicio = strtotime($request->hora_inicio) + 60*60;
         $fin = date('H:i:s', $inicio);
 
+        $profesional = Profesional::first();
+
 
 //        $rules = [
 //            'actividad_id' => 'required'
@@ -54,7 +56,7 @@ class ShowConsultas extends Controller
 
         $new = new Consulta();
         $new->paciente_id = Auth::user()->paciente->id;
-        $new->profesional_id = $request->profesional_id;
+        $new->profesional_id = $profesional->id;
         $new->estado_id = 1;
         $new->fecha = $request->fecha;
         $new->hora_inicio = $request->hora_inicio;

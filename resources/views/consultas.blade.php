@@ -15,7 +15,7 @@
         <tr>
             <th class="text-center" scope="col">Fecha</th>
             <th class="text-center" scope="col">Horario</th>
-            <th class="text-center" scope="col">Profesional</th>
+{{--            <th class="text-center" scope="col">Profesional</th>--}}
             <th class="text-center" scope="col">Estado</th>
         </tr>
         </thead>
@@ -43,7 +43,7 @@
             <tr>
                 <td class="text-center">{!! \Carbon\Carbon::parse($consulta->fecha)->isoFormat('dddd, DD \d\e MMMM \d\e YYYY'); !!}</td>
                 <td class="text-center">{{$consulta->hora_inicio}}</td>
-                <td class="text-center">{{$consulta->Profesional->Persona->getNombreCompleto()}}</td>
+{{--                <td class="text-center">{{$consulta->Profesional->Persona->getNombreCompleto()}}</td>--}}
                 <td class="text-center text-uppercase">{!! $row_estado !!} </td>
             </tr>
         @endforeach
