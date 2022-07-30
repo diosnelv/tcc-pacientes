@@ -28,4 +28,12 @@ class Persona extends Model
     {
         return Carbon::parse($this->attributes['fecha_nacimiento'])->age;
     }
+
+    /**
+     * Fecha de Cita para Especialista
+     */
+    public function getNombreCompleto()
+    {
+        return $this->attributes['nombre'].' '.$this->attributes['apellido'];
+    }
 }

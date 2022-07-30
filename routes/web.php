@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,12 +20,17 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/profile', 'ShowProfile');
-Route::get('/medidas', 'ShowMedidas');
-Route::get('/historial-medidas', 'HistorialMedidas');
-Route::get('/plan-nutricional', 'PlanNutricional');
-Route::get('/habitos', 'ShowHabitos')->name('habitos');
-Route::get('/habitos-crear', 'ShowHabitos@crearHabito')->name('crear-habito');
-Route::post('/habitos', 'ShowHabitos@guardarHabito')->name('guardar-habito');
-Route::get('/comidas', 'ShowComidas');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/home', 'HomeController@index')->name('home');
+    Route::get('/profile', 'ShowProfile');
+    Route::get('/consultas', 'ShowConsultas')->name('consultas');
+    Route::get('/agendar-consulta', 'ShowConsultas@agendarConsulta')->name('agendar-consulta');
+    Route::post('/guardar-consulta', 'ShowConsultas@guardarConsulta')->name('guardar-consulta');
+    Route::get('/medidas', 'ShowMedidas');
+    Route::get('/plan-nutricional', 'PlanNutricional');
+    Route::get('/habitos', 'ShowHabitos')->name('habitos');
+    Route::get('/habitos-crear', 'ShowHabitos@crearHabito')->name('crear-habito');
+    Route::post('/habitos', 'ShowHabitos@guardarHabito')->name('guardar-habito');
+    Route::get('/comidas', 'ShowComidas');
+    Route::get('/historial-medidas', 'HistorialMedidas');
+});
