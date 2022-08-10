@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Dia;
+use App\PlanComida;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -15,14 +18,28 @@ class ShowComidas extends Controller
      */
     public function __invoke(Request $request)
     {
-        $comidas = array(
-            array('nombre' => 'Café con leche', 'tipo' => 'Desayuno'),
-            array('nombre' => 'Pescado con ensalada verde', 'tipo' => 'Almuerzo'),
-            array('nombre' => 'Fruta de estación', 'tipo' => 'Merienda'),
-            array('nombre' => 'Omelette con tomates', 'tipo' => 'Cena')
-        );
+        $diaSemana = Carbon::now()->tz('America/New_York')->dayOfWeek;
+        $plan = Auth::user()->paciente->Plan->first();
+
+        $planComidas = PlanComida::where([['dia_id',$diaSemana],['plan_id',$plan->id]])->limit(4)->get();
+
+        $dia = Carbon::now()->tz('America/New_York')->isoFormat('dddd, DD \d\e MMMM \d\e YYYY');
+
+        $comidas = [];
+
+        foreach ($planComidas as $comida){
+            $new = array('nombre' => $comida->Comida->descripcion, 'tipo' => $comida->ComidaTipo->nombre);
+            $comidas[]= $new;
+        }
+
+//        $comidas = array(
+//            array('nombre' => 'Café con leche', 'tipo' => 'Desayuno'),
+//            array('nombre' => 'Pescado con ensalada verde', 'tipo' => 'Almuerzo'),
+//            array('nombre' => 'Fruta de estación', 'tipo' => 'Merienda'),
+//            array('nombre' => 'Omelette con tomates', 'tipo' => 'Cena')
+//        );
 
 
-        return view('comidas', compact('comidas'));
+        return view('comidas', compact('comidas', 'dia'));
     }
 }

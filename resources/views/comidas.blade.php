@@ -6,7 +6,7 @@
         <ol class="breadcrumb">
             <li class="breadcrumb-item"><a href="/">{{ config('app.name', 'Laravel') }}</a></li>
             <li class="breadcrumb-item" aria-current="page"><a href="/">Historial de comidas</a></li>
-            <li class="breadcrumb-item active" aria-current="page">23-03-2021</li>
+            <li class="breadcrumb-item active" aria-current="page">{{ $dia }}</li>
         </ol>
     </nav>
 
@@ -37,4 +37,18 @@
         <button onclick="test()" type="submit" class="btn btn-success mt-3">Guardar &nbsp;<i class="fas fa-save"></i></button>
     </div>
 </div>
+    <script>
+        function test(){
+            Swal.fire({
+                icon: 'success',
+                title: 'Su historial se guardo correctamente.',
+                showConfirmButton: false,
+                timer: 2000
+            })
+            setTimeout(function () {
+                window.location = '/home';
+            }, 2000);
+
+        }
+    </script>
 @endsection
