@@ -38,4 +38,8 @@ class Paciente extends Model
             });
         }
     }
+
+    public function User(){
+        return $this->hasOne('App\User','paciente_id','id');
+    }
 }

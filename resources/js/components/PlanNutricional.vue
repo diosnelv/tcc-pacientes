@@ -1,11 +1,15 @@
 <template>
-    <vue-cal :timeCellHeight="150" :time="false" :timeStep="60" :events="comidas" :hide-weekdays="[7]" :time-from="6 * 60" :time-to="21 * 60" :disable-views="['years', 'year', 'month']" style="height: 100%" locale="es" />
+    <vue-cal :timeCellHeight="150" :time="false" :timeStep="60" :events="comidas" :hide-weekdays="[7]"
+             :time-from="6 * 60" :time-to="21 * 60" :disable-views="['years', 'year', 'month']"
+             :on-event-click="verReceta"
+             style="height: 100%" locale="es" />
 </template>
 
 <script>
 import VueCal from 'vue-cal'
 import 'vue-cal/dist/vuecal.css'
 import 'vue-cal/dist/i18n/es.js'
+import Swal from "sweetalert2";
     export default {
         components: { VueCal },
         mounted() {
@@ -13,6 +17,30 @@ import 'vue-cal/dist/i18n/es.js'
         },
         props: {
             comidas: Array
+        },
+        methods:{
+            verReceta (event, e) {
+                // console.log('event'+JSON.stringify(event));
+
+                let rows = event.receta;
+                let row = '';
+                row += '<ul class="text-primary text-left">'
+                $.each(rows, function (key, value){
+                    row += '<li>';
+                    row += value;
+                    row += '</li>';
+                })
+                row += '</ul>';
+
+                Swal.fire({
+                    title: `Receta del ${event.title}`,
+                    html: row,
+                    // showCancelButton: false,
+                    // confirmButtonText: 'Reservar',
+                    // cancelButtonText: 'Cancelar',
+                    // confirmButtonColor: '#3490E0'
+                })
+            }
         },
         data: () => ({
             events: [

@@ -26,6 +26,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/consultas', 'ShowConsultas')->name('consultas');
     Route::get('/agendar-consulta', 'ShowConsultas@agendarConsulta')->name('agendar-consulta');
     Route::post('/guardar-consulta', 'ShowConsultas@guardarConsulta')->name('guardar-consulta');
+    Route::post('/cancelar-consulta', 'ShowConsultas@cancelarConsulta')->name('cancelar-consulta');
     Route::get('/medidas', 'ShowMedidas');
     Route::get('/plan-nutricional', 'PlanNutricional');
     Route::get('/habitos', 'ShowHabitos')->name('habitos');

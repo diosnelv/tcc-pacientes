@@ -27,4 +27,8 @@ class Profesional extends Model
     public function Horario(){
         return $this->hasMany('App\Horario','profesional_id','id');
     }
+
+    public function User(){
+        return $this->hasOne('App\UserNutricionista','persona_id','persona_id');
+    }
 }

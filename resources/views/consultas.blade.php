@@ -17,6 +17,7 @@
             <th class="text-center" scope="col">Horario</th>
 {{--            <th class="text-center" scope="col">Profesional</th>--}}
             <th class="text-center" scope="col">Estado</th>
+            <th class="text-center" scope="col">Acciones</th>
         </tr>
         </thead>
         <tbody>
@@ -42,12 +43,50 @@
             @endphp
             <tr>
                 <td class="text-center">{!! \Carbon\Carbon::parse($consulta->fecha)->isoFormat('dddd, DD \d\e MMMM \d\e YYYY'); !!}</td>
-                <td class="text-center">{{$consulta->hora_inicio}}</td>
+                <td class="text-center">{{ substr($consulta->hora_inicio, 0, -3) }} hs.</td>
 {{--                <td class="text-center">{{$consulta->Profesional->Persona->getNombreCompleto()}}</td>--}}
                 <td class="text-center text-uppercase">{!! $row_estado !!} </td>
+                <td class="text-center">
+                    <form id="my_form" >
+                        @csrf
+                        <a data-id="{{ $consulta->id }}" class="cancelarConsulta btn btn-sm btn-danger ml-5"><i class="fa fa-ban "> </i> Cancelar consulta</a>
+                    </form>
+                </td>
             </tr>
         @endforeach
         </tbody>
     </table>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="application/javascript">
+        $(".cancelarConsulta").click(function(){``
+            let consultaId = $(this).data('id');
+            Swal.fire({
+                title: 'Cancelando consulta...',
+                didOpen: () => {
+                    Swal.showLoading()
+                },
+            });
+
+            $.ajax({
+                method: 'POST',
+                url: '/cancelar-consulta',
+                data: {'id': consultaId, "_token": "{{ csrf_token() }}"},
+                success: function (response) {
+                    Swal.fire({
+                        title: "¡Listo!",
+                        text: "La consulta fue cancelada con éxito.",
+                        icon: "success",
+                        showConfirmButton: false
+                    });
+                    setTimeout(function() {
+                        location.reload();
+                    }, 1500);
+                },
+                error: function (error) {
+                    Swal.fire("¡ERROR!", "Se ha generado un error. Intente nuevamente en unos minutos o actualice la página.", "error")
+                }
+            })
+        });
+    </script>
 @endsection

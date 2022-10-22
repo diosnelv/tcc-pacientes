@@ -10,7 +10,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-9">
-                                <h5 class="card-title">Plan de comidas diario definido por el nutricionista</h5>
+                                <h6 class="card-title">Plan de comidas diario definido por el nutricionista</h6>
                             </div>
                             <div class="col-3 p-0">
                                 <i class="fas fa-apple-alt fa-4x"></i>
@@ -27,7 +27,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-9">
-                                <h5 class="card-title">Historial de medidas actuales del paciente (peso, altura, etc.)</h5>
+                                <h6 class="card-title">Historial de medidas actuales del paciente (peso, altura, etc.)</h6>
                             </div>
                             <div class="col-3 p-0">
                                 <i class="fas fa-weight fa-4x"></i>
@@ -44,7 +44,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-9">
-                                <h5 class="card-title">Registro del paciente de sus hábitos saludables (deportes, ejercicios, etc.)</h5>
+                                <h6 class="card-title">Registro del paciente de sus hábitos saludables (deportes, ejercicios, etc.)</h6>
                             </div>
                             <div class="col-3 p-0">
                                 <i class="fas fa-bicycle fa-4x"></i>
@@ -61,7 +61,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-9">
-                                <h5 class="card-title">Seguimiento del paciente de su plan nutricional diario</h5>
+                                <h6 class="card-title">Seguimiento del paciente de su plan nutricional diario</h6>
                             </div>
                             <div class="col-3 p-0">
                                 <i class="fas fa-pizza-slice fa-4x"></i>
