@@ -1,7 +1,7 @@
 <template>
 <!--    <h1>holaaa</h1>-->
     <vue-cal
-        selected-date="2022-10-18"
+        v-model:selected-date="hoy"
         xsmall
         :timeCellHeight="70"
         :hide-weekdays="[6,7]"
@@ -79,6 +79,7 @@ import 'vue-cal/dist/i18n/es.js'
         }
         ,
         data: () => ({
+            hoy: moment(new Date()).format("DD-MM-YYYY"),
             events: [
                 {
                     start: '2022-10-19 14:00',
