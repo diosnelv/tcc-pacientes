@@ -19,7 +19,7 @@ class PlanNutricional extends Controller
     {
         $fechaInicio = Carbon::now()->startOfWeek()->subDay()->toDateString();
 
-        $plan = Auth::user()->paciente->Plan->first();
+        $plan = Auth::user()->paciente->Plan->last();
 
         $comidas = $plan->PlanComidas;
         $tipos = ComidaTipo::all()->toArray();
