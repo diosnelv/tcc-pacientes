@@ -38,7 +38,7 @@ class ShowConsultas extends Controller
 //            "18:00:00" => "6:00 pm", "19:00:00" => "7:00 pm", "20:00:00" => "8:00 pm", "21:00:00" => "9:00 pm",
 //            "22:00:00" => "10:00 pm", "23:00:00" => "11:00 pm"];
 
-        $horarioEspecialista = Consulta::where([['profesional_id',5],['estado_id',6],['paciente_id',null]])->get();
+        $horarioEspecialista = Consulta::where([['profesional_id',9],['estado_id',6],['paciente_id',null]])->get();
 
         $horarios = [];
         foreach ($horarioEspecialista as $horario){

@@ -37,7 +37,7 @@ import Swal from "sweetalert2";
                 Swal.fire({
                     title: titulo,
                     html: row,
-                    icon: 'success',
+                    icon: 'info',
                     // showCancelButton: false,
                     confirmButtonText: 'Cerrar',
                     // cancelButtonText: 'Cancelar',
