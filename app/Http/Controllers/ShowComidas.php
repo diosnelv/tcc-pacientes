@@ -19,7 +19,7 @@ class ShowComidas extends Controller
     public function __invoke(Request $request)
     {
         $diaSemana = Carbon::now()->tz('America/New_York')->dayOfWeek;
-        $plan = Auth::user()->paciente->Plan->first();
+        $plan = Auth::user()->paciente->Plan->last();
 
         $planComidas = PlanComida::where([['dia_id',$diaSemana],['plan_id',$plan->id]])->limit(4)->get();
 
@@ -28,7 +28,7 @@ class ShowComidas extends Controller
         $comidas = [];
 
         foreach ($planComidas as $comida){
-            $new = array('nombre' => $comida->Comida->descripcion, 'tipo' => $comida->ComidaTipo->nombre);
+            $new = array('nombre' => $comida->Comida->nombre, 'tipo' => $comida->ComidaTipo->nombre);
             $comidas[]= $new;
         }
 
