@@ -32,13 +32,16 @@ import Swal from "sweetalert2";
                 })
                 row += '</ul>';
 
+                let titulo = 'Ingredientes' + (event.title === 'Almuerzo' || event.title === 'Desayuno' ? ' del ' : ' de la') + event.title;
+
                 Swal.fire({
-                    title: `Ingredientes del ${event.title}`,
+                    title: titulo,
                     html: row,
+                    icon: 'success',
                     // showCancelButton: false,
-                    // confirmButtonText: 'Reservar',
+                    confirmButtonText: 'Cerrar',
                     // cancelButtonText: 'Cancelar',
-                    // confirmButtonColor: '#3490E0'
+                    confirmButtonColor: '#3490E0'
                 })
             }
         },
