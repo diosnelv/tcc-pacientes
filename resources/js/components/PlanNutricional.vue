@@ -33,7 +33,7 @@ import Swal from "sweetalert2";
                 row += '</ul>';
 
                 Swal.fire({
-                    title: `Ingrediens del ${event.title}`,
+                    title: `Ingredientes del ${event.title}`,
                     html: row,
                     // showCancelButton: false,
                     // confirmButtonText: 'Reservar',
