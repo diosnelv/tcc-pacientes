@@ -21,7 +21,13 @@ class PlanNutricional extends Controller
 
         $plan = Auth::user()->paciente->Plan->last();
 
-        $comidas = $plan->PlanComidas;
+//        dd($plan);
+        if(isset($plan)){
+            $comidas = $plan->PlanComidas;
+        }else{
+            $comidas = [];
+        }
+
         $tipos = ComidaTipo::all()->toArray();
 
         $dieta = [];

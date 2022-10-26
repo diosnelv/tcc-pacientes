@@ -24,7 +24,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->command('command:aviso_cancelaciones')->every();
+         $schedule->command('command:aviso_cancelaciones')->everyFourHours();
     }
 
     /**

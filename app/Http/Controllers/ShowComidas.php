@@ -21,7 +21,13 @@ class ShowComidas extends Controller
         $diaSemana = Carbon::now()->tz('America/New_York')->dayOfWeek;
         $plan = Auth::user()->paciente->Plan->last();
 
-        $planComidas = PlanComida::where([['dia_id',$diaSemana],['plan_id',$plan->id]])->limit(4)->get();
+        if(isset($plan)){
+            $planComidas = PlanComida::where([['dia_id',$diaSemana],['plan_id',$plan->id]])->limit(4)->get();
+        }else{
+            $planComidas = [];
+        }
+
+
 
         $dia = Carbon::now()->tz('America/New_York')->isoFormat('dddd, DD \d\e MMMM \d\e YYYY');
 
