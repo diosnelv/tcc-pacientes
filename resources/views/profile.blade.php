@@ -28,10 +28,12 @@
                 <label for="disabledTextInput" class="form-label text-primary">Teléfono</label>
                 <input type="text" id="disabledTextInput" class="form-control" value="{{$persona->telefono}}">
             </div>
-            <div class="mb-3">
-                <label for="disabledTextInput" class="form-label text-primary">Ciudad</label>
-                <input type="text" id="disabledTextInput" class="form-control" value="{{$persona->direcciones[0]->ciudad->nombre}}">
-            </div>
+            @if(count($persona->direcciones) > 0)
+                <div class="mb-3">
+                    <label for="disabledTextInput" class="form-label text-primary">Ciudad</label>
+                    <input type="text" id="disabledTextInput" class="form-control" value="{{$persona->direcciones[0]->ciudad->nombre}}">
+                </div>
+            @endif
             <button type="submit" class="btn btn-primary">Editar</button>
         </fieldset>
     </form>
